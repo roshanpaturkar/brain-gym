@@ -48,6 +48,6 @@ func main() {
 	sort.Slice(tasks, func(i, j int) bool {
 		return tasks[i].priority < tasks[j].priority
 	})
-	// tasks = [{"Buy grocery", 3}, {"Cook dinner", 5}]
+	// tasks = [{Pay bills 1} {Sleep 2} {Buy grocery 3} {Study 4} {Cook dinner 5}]
 	fmt.Println("Sorted Structures accroding to priority: ", tasks)
 }
