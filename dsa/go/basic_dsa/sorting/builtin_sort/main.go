@@ -40,6 +40,9 @@ func main() {
 	}{
 		{"Cook dinner", 5},
 		{"Buy grocery", 3},
+		{"Pay bills", 1},
+		{"Study", 4},
+		{"Sleep", 2},
 	}
 
 	sort.Slice(tasks, func(i, j int) bool {
