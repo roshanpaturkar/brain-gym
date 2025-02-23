@@ -28,50 +28,85 @@ import (
 )
 
 func findAnagrams(original string, check string) []int {
-	// Create a map to store the frequency of each character in check
-	checkMap := make(map[rune]int)
-	for _, char := range check {
-		checkMap[char]++
-	}
-
-	// Create a map to store the frequency of each character in the current window
-	windowMap := make(map[rune]int)
-
 	// Create a list to store the starting indices of all anagrams of check
 	var result []int
-
-	// Initialize the left and right pointers
-	left, right := 0, 0
-
-	// Iterate over the original string
-	for right < len(original) {
-		// Expand the window
-		windowMap[rune(original[right])]++
-
-		// If the window size is equal to the size of check
-		if right-left+1 == len(check) {
-			// Check if the window is an anagram of check
-			if isAnagram(windowMap, checkMap) {
-				// If it is an anagram, add the starting index of the window to the result
-				result = append(result, left)
-			}
-
-			// Shrink the window
-			windowMap[rune(original[left])]--
-			if windowMap[rune(original[left])] == 0 {
-				delete(windowMap, rune(original[left]))
-			}
-
-			// Move the left pointer
-			left++
-		}
-
-		// Move the right pointer
-		right++
+	
+	// If the length of original is less than the length of check, return an empty list
+	if len(original) < len(check) {
+		return result
 	}
-
+	
+	// Create a map to store the frequency of each character in check
+	checkMap := make(map[rune]int)
+	// Create a map to store the frequency of each character in the current window
+	windowMap := make(map[rune]int)
+	for _, char := range check {
+		checkMap[char]++
+		windowMap[char]++
+	}
+	
+	if isAnagram(windowMap, checkMap) {
+		result = append(result, 0)
+	}
+	
+	for i := len(check); i < len(original); i++ {
+		windowMap[rune(original[i])]++
+		windowMap[rune(original[i-len(check)])]--
+		if windowMap[rune(original[i-len(check)])] == 0 {
+			delete(windowMap, rune(original[i-len(check)]))
+		}
+		if isAnagram(windowMap, checkMap) {
+			result = append(result, i-len(check)+1)
+		}
+	}
 	return result
 }
+
+// func findAnagrams(original string, check string) []int {
+// 	// Create a map to store the frequency of each character in check
+// 	checkMap := make(map[rune]int)
+// 	for _, char := range check {
+// 		checkMap[char]++
+// 	}
+
+// 	// Create a map to store the frequency of each character in the current window
+// 	windowMap := make(map[rune]int)
+
+// 	// Create a list to store the starting indices of all anagrams of check
+// 	var result []int
+
+// 	// Initialize the left and right pointers
+// 	left, right := 0, 0
+
+// 	// Iterate over the original string
+// 	for right < len(original) {
+// 		// Expand the window
+// 		windowMap[rune(original[right])]++
+
+// 		// If the window size is equal to the size of check
+// 		if right-left+1 == len(check) {
+// 			// Check if the window is an anagram of check
+// 			if isAnagram(windowMap, checkMap) {
+// 				// If it is an anagram, add the starting index of the window to the result
+// 				result = append(result, left)
+// 			}
+
+// 			// Shrink the window
+// 			windowMap[rune(original[left])]--
+// 			if windowMap[rune(original[left])] == 0 {
+// 				delete(windowMap, rune(original[left]))
+// 			}
+
+// 			// Move the left pointer
+// 			left++
+// 		}
+
+// 		// Move the right pointer
+// 		right++
+// 	}
+
+// 	return result
+// }
 
 func isAnagram(windowMap map[rune]int, checkMap map[rune]int) bool {
 	for char, count := range checkMap {
