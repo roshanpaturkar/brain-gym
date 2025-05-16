@@ -6,9 +6,8 @@ func countChar(chars string) map[rune]int {
 	charCount := make(map[rune]int)
 
 	for _, char := range chars {
-		_, exists := charCount[char]
-
-		if exists {
+		// _, exists := charCount[char]
+		if _, exists := charCount[char]; exists {
 			charCount[char] += 1
 		} else {
 			charCount[char] = 1
