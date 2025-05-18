@@ -8,37 +8,37 @@ import (
 	"fmt"
 )
 
-// func maxSumSubarray(nums []int, k int) int {
-// 	sum := 0
-// 	maxSum := 0
-
-// 	for i := range nums {
-// 		sum += nums[i]
-
-// 		if i >= k-1 {
-// 			maxSum = max(maxSum, sum)
-// 			sum -= nums[i-k+1]
-// 		}
-// 	}
-
-// 	return maxSum
-// }
-
 func maxSumSubarray(nums []int, k int) int {
 	sum := 0
 	maxSum := 0
-	
-	for i := range k {
+
+	for i := range nums {
 		sum += nums[i]
+
+		if i >= k-1 {
+			maxSum = max(maxSum, sum)
+			sum -= nums[i-k+1]
+		}
 	}
-	maxSum = max(maxSum, sum)
-	for i := k; i < len(nums); i++ {
-		sum += nums[i] - nums[i-k]
-		maxSum = max(maxSum, sum)
-	}
-	
+
 	return maxSum
 }
+
+// func maxSumSubarray(nums []int, k int) int {
+// 	sum := 0
+// 	maxSum := 0
+	
+// 	for i := range k {
+// 		sum += nums[i]
+// 	}
+// 	maxSum = max(maxSum, sum)
+// 	for i := k; i < len(nums); i++ {
+// 		sum += nums[i] - nums[i-k]
+// 		maxSum = max(maxSum, sum)
+// 	}
+	
+// 	return maxSum
+// }
 
 func max(a, b int) int {
 	if a > b {
@@ -50,9 +50,9 @@ func max(a, b int) int {
 func main() {
 	nums := []int{1, 2, 3, 7, 4, 1}
 	k := 3
-	fmt.Println(maxSumSubarray(nums, k))
+	fmt.Println(maxSumSubarray(nums, k)) // Output: 14
 	
 	nums = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	k = 4
-	fmt.Println(maxSumSubarray(nums, k))
+	fmt.Println(maxSumSubarray(nums, k)) // Output: 34
 }
