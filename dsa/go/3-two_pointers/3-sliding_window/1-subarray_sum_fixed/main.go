@@ -24,22 +24,6 @@ func maxSumSubarray(nums []int, k int) int {
 	return maxSum
 }
 
-// func maxSumSubarray(nums []int, k int) int {
-// 	sum := 0
-// 	maxSum := 0
-	
-// 	for i := range k {
-// 		sum += nums[i]
-// 	}
-// 	maxSum = max(maxSum, sum)
-// 	for i := k; i < len(nums); i++ {
-// 		sum += nums[i] - nums[i-k]
-// 		maxSum = max(maxSum, sum)
-// 	}
-	
-// 	return maxSum
-// }
-
 func max(a, b int) int {
 	if a > b {
 		return a
