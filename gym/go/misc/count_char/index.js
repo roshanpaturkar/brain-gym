@@ -11,6 +11,6 @@ const countChar = (str) => {
     return charCount;
 }
 
-const str = "hello world";
+const str = "hello world string count";
 const result = countChar(str);
 console.log(result);
