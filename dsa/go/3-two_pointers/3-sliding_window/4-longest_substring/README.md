@@ -1,5 +1,5 @@
 # Longest Substring without Repeating Characters
----
+
 Find the length of the longest substring of a given string without repeating characters.
 
 Input: abccabcabcc
