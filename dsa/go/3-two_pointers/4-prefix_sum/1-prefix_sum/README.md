@@ -1,4 +1,4 @@
-# Practice Problem: Subarray Sum
+# Subarray Sum
 
 Given an array of integers and an integer target, find a subarray that sums to target and return the start and end indices of the subarray.
 
