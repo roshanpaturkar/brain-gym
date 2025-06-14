@@ -28,3 +28,9 @@ The smallest substring of <code>original</code> that satisfies the condition.
 ## Constraints
 - <code>1 <= len(check), len(original) <= 10^5</code>
 - <code>original</code> and <code>check</code> both contain only uppercase and lowercase characters in English. The characters are case sensitive.
+
+## Time Complexity
+The time complexity of this algorithm is O(n), where n is the length of the original string. This is because we are using a sliding window approach, and each character is processed at most twice (once when expanding the window and once when contracting it).
+
+## Space Complexity
+The space complexity is O(m), where m is the number of unique characters in the check string. This is because we are using a hash map to store the frequency of characters in the check string and another hash map to store the frequency of characters in the current window of the original string.
