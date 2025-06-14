@@ -1,0 +1,30 @@
+# Minimum Window Substring
+
+Given two strings, <code>original</code> and <code>check</code>, return the minimum substring of <code>original</code> such that each character in <code>check</code>, including duplicates, are included in this substring. By "minimum", I mean the shortest substring. If two substrings that satisfy the condition have the same length, the one that comes lexicographically first is smaller.
+
+
+## Parameters
+- <code>original</code>: The original string.
+- <code>check</code>: The string to check if a window contains it.
+
+
+## Result
+The smallest substring of <code>original</code> that satisfies the condition.
+
+
+## Examples
+<b>Input</b>: <code>original = "cdbaebaecd", check = "abc"</code>
+<br>
+<b>Output</b>: <code>baec</code>
+<br>
+<b>Explanation</b>: baec is the shortest substring of <code>original</code> that contains all of a, b, and c.
+
+<b>Input</b>: <code>original = "aabbcc", check = "abc"</code>
+<br>
+<b>Output</b>: <code>abc</code>
+<br>
+<b>Explanation</b>: abc is the shortest substring of <code>original</code> that contains all of a, b, and c.
+
+## Constraints
+- <code>1 <= len(check), len(original) <= 10^5</code>
+- <code>original</code> and <code>check</code> both contain only uppercase and lowercase characters in English. The characters are case sensitive.
