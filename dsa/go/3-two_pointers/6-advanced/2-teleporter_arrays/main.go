@@ -64,4 +64,14 @@ func main() {
 	arr2 = []int{2, 3, 6, 7, 10}
 	result = maximumScore(arr1, arr2)
 	fmt.Println(result) // Output: 28
+
+	arr1 = []int{2, 3, 5, 6, 7, 9, 11, 13, 14, 16, 17, 19, 20}
+	arr2 = []int{3, 4, 5, 7, 8, 10, 11, 12, 15, 16, 18, 20}
+	result = maximumScore(arr1, arr2)
+	fmt.Println(result) // Output: 155
+
+	arr1 = []int{2, 4, 6, 7, 9, 15, 16, 17, 18, 20, 21, 22, 24, 29, 30, 33, 43}
+	arr2 = []int{2, 3, 5, 8, 9, 10, 11, 12, 13, 14, 20, 23, 25, 26, 27, 30, 36, 39}
+	result = maximumScore(arr1, arr2)
+	fmt.Println(result) // Output: 321
 }
