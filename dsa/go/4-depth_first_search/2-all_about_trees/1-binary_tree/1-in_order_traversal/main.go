@@ -12,7 +12,6 @@ type Node struct {
     right *Node
 }
 
-
 func inOrderTraversal(root *Node) {
     if root != nil {
         inOrderTraversal(root.left)
