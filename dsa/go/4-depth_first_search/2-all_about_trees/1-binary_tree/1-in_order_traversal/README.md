@@ -6,3 +6,5 @@ In-order traversal is a depth-first traversal method for binary trees. In this m
 3. Traverse the right subtree
 
 This results in the nodes being visited in ascending order for binary search trees.
+
+# ![In-order Traversal](https://assets.algo.monster/inorder_traversal.gif)
