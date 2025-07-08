@@ -10,6 +10,7 @@ func main() {
 	ctx := context.Background()
 
 	contextTimeout(ctx)
+	contextWithValue(ctx)
 }
 
 func contextTimeout(ctx context.Context) {
@@ -31,5 +32,19 @@ func contextTimeout(ctx context.Context) {
 		case <- contextWithTimeout.Done():
 			fmt.Println("API timeout:", contextWithTimeout.Err())
 			// add handeling logic
+	}
+}
+
+func contextWithValue(ctx context.Context) {
+	type key int
+	const UserKey key = 0
+
+	contextWithValue := context.WithValue(ctx, UserKey, "333221")
+	// contextWithValue := context.WithValue(ctx, UserKey, nil)
+
+	if userId, ok := contextWithValue.Value(UserKey).(string); ok {
+		fmt.Println("User authenticated with userId:", userId)
+	} else {
+		fmt.Println("Protected rout, userId is missing!")
 	}
 }
